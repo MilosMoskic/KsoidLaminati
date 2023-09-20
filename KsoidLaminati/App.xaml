@@ -4,6 +4,18 @@
              xmlns:local="clr-namespace:KsoidLaminati"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
+        <Style TargetType="Thumb">
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Ellipse Fill="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"></Ellipse>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            
+        </Style>
+        
     </Application.Resources>
 </Application>

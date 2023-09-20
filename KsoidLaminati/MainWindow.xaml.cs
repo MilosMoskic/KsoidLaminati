@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,7 +24,13 @@ namespace KsoidLaminati
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
         }
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            AdornerLayer.GetAdornerLayer(CanvasMain).Add(new ResizeAdorner(new Rectangle()));
+        }
+
         UIElement dragObject = null;
         Point offset;
 
@@ -46,6 +53,7 @@ namespace KsoidLaminati
             Canvas.SetLeft(userCTRL, 20);
             userCTRL.PreviewMouseDown += UserCTRL_PreviewMouseDown;
             CanvasMain.Children.Add(userCTRL);
+            AdornerLayer.GetAdornerLayer(CanvasMain).Add(new ResizeAdorner(userCTRL));
         }
 
         private void CanvasMain_PreviewMouseMove(object sender, MouseEventArgs e)
