@@ -9,7 +9,7 @@ namespace KsoidLaminati
     public class ResizeAdorner : Adorner
     {
         VisualCollection AdornerVisuals;
-        Thumb thumb1, thumb;
+        Thumb thumb;
         Rectangle Rec;
         public ResizeAdorner(UIElement adornedElement) : base(adornedElement)
         {
