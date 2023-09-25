@@ -1,16 +1,7 @@
-﻿using System;
+﻿using KsoidLaminati.Classes;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace KsoidLaminati.UI
 {
@@ -19,11 +10,49 @@ namespace KsoidLaminati.UI
     /// </summary>
     public partial class TableWindow : Window
     {
+        List<ItemModel> items= new List<ItemModel>();
         public TableWindow()
         {
             InitializeComponent();
+            DisplayTable();
         }
+        private void LoadItemsList()
+        {
+            items = SqlDataAccess.LoadItems();
 
+        }
+        private void DisplayTable()
+        {
+            try
+            {
+                var items = SqlDataAccess.LoadItems();
+
+                DataGridItems.ItemsSource = items;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void addItemButtonClick(object sender, RoutedEventArgs e)
+        {
+            ItemModel item = new ItemModel();
+
+            item.ItemType = itemTypeText.Text;
+            item.ItemBrand = itemBrandText.Text;
+            item.ItemName = itemNameText.Text;
+            item.Quantity = Convert.ToDecimal(quantityText.Text);
+
+            SqlDataAccess.SaveItem(item);
+
+            itemTypeText.Text = "";
+            itemBrandText.Text = "";
+            itemNameText.Text = "";
+            quantityText.Text = "";
+
+            LoadItemsList();
+        }
+        
         private void BackToUI(object sender, RoutedEventArgs e)
         {
             MainWindow objMainWindow = new MainWindow();
