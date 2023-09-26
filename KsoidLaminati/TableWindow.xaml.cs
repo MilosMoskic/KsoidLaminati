@@ -1,9 +1,7 @@
 ﻿using KsoidLaminati.Classes;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace KsoidLaminati.UI
 {
@@ -52,25 +50,14 @@ namespace KsoidLaminati.UI
             itemNameText.Text = "";
             quantityText.Text = "";
 
-            DisplayTable();
+            LoadItemsList();
         }
-
+        
         private void BackToUI(object sender, RoutedEventArgs e)
         {
             MainWindow objMainWindow = new MainWindow();
             this.Visibility = Visibility.Hidden;
             objMainWindow.Show();
-        }
-        private void DataGridRow_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            var row = sender as DataGridRow;
-            var item = row.DataContext as ItemModel;
-
-            idText.Text = item.Id.ToString();
-            itemTypeText.Text = item.ItemType.ToString();
-            itemBrandText.Text = item.ItemBrand.ToString();
-            itemNameText.Text = item.ItemName.ToString();
-            quantityText.Text = item.Quantity.ToString();
         }
     }
 }

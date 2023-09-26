@@ -23,15 +23,6 @@ namespace KsoidLaminati.Classes
                     "values (@ItemType, @ItemBrand, @ItemName, @Quantity)", item);
             }
         }
-        public static void UpdateItem(ItemModel item)
-        {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                cnn.Execute("Update Item " +
-                    "Set ItemType = @ItemType, ItemBrand = @ItemBrand, ItemName = @ItemName, Quantity = @Quantity" +
-                    "Where Id = @Id", item);
-            }
-        }
         private static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;

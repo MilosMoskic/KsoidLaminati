@@ -11,7 +11,6 @@
                " HorizontalAlignment="Left" VerticalAlignment="Top" Width="83"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="22,26,0,0" VerticalAlignment="Top" Click="BackToUI"/>
         <Label Content="ItemType" HorizontalAlignment="Left" Margin="24,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.476,0.031"/>
-        <TextBox x:Name="idText" HorizontalAlignment="Left" Margin="22,57,0,0" TextWrapping="Wrap" Visibility="Hidden" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="itemTypeText" HorizontalAlignment="Left" Margin="22,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label Content="ItemBrand" HorizontalAlignment="Left" Margin="24,124,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="itemBrandText" HorizontalAlignment="Left" Margin="24,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
@@ -20,16 +19,11 @@
         <Label Content="ItemName" HorizontalAlignment="Left" Margin="24,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.533,0.565" Width="65"/>
         <Label Content="Quantity" HorizontalAlignment="Left" Margin="22,212,0,0" VerticalAlignment="Top"/>
         <Button Content="Dodaj" HorizontalAlignment="Left" Margin="22,278,0,0" VerticalAlignment="Top" Click="addItemButtonClick"/>
-        <DataGrid Name="DataGridItems" Margin="149,0,0,0" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False"
+        <DataGrid Name="DataGridItems" Margin="149,0,0,0"  AutoGenerateColumns="False" CanUserAddRows="False"
           CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False"
-          CanUserResizeRows="False" CanUserSortColumns="False">
-            <DataGrid.Resources>
-                <Style TargetType="DataGridRow">
-                    <EventSetter Event="MouseDoubleClick" Handler="DataGridRow_MouseDoubleClick"/>
-                </Style>
-            </DataGrid.Resources>
+          CanUserResizeRows="False" CanUserSortColumns="False" SelectionMode="Single">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Visibility="Hidden" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="id" Visibility="Hidden" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="ItemType" FontFamily="Arial" Width="160" Binding="{Binding ItemType}"/>
                 <DataGridTextColumn Header="ItemBrand" FontFamily="Arial" Width="160" Binding="{Binding ItemBrand}"/>
                 <DataGridTextColumn Header="ItemName" FontFamily="Arial" Width="160" Binding="{Binding ItemName}"/>
