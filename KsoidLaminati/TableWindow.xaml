@@ -13,6 +13,7 @@
         <Label Content="ItemType" HorizontalAlignment="Left" Margin="24,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.476,0.031"/>
         <TextBox x:Name="itemTypeText" HorizontalAlignment="Left" Margin="22,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label Content="ItemBrand" HorizontalAlignment="Left" Margin="24,124,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="idText" HorizontalAlignment="Left" Margin="24,75,0,0" Visibility="Hidden" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="itemBrandText" HorizontalAlignment="Left" Margin="24,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="itemNameText" HorizontalAlignment="Left" Margin="24,194,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="quantityText" HorizontalAlignment="Left" Margin="24,238,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
@@ -22,6 +23,11 @@
         <DataGrid Name="DataGridItems" Margin="149,0,0,0"  AutoGenerateColumns="False" CanUserAddRows="False"
           CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False"
           CanUserResizeRows="False" CanUserSortColumns="False" SelectionMode="Single">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="DataGridRow_MouseDoubleClick" />
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="id" Visibility="Hidden" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="ItemType" FontFamily="Arial" Width="160" Binding="{Binding ItemType}"/>
