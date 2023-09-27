@@ -36,6 +36,7 @@
                 <DataGridTextColumn Header="Quantity" FontFamily="Arial" Width="150" Binding="{Binding Quantity}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Update" Content="Update" HorizontalAlignment="Left" Margin="82,278,0,0" VerticalAlignment="Top" Click="updateItemButtonClick"/>
+        <Button x:Name="Update" Content="Update" HorizontalAlignment="Left" Margin="63,278,0,0" VerticalAlignment="Top" Click="updateItemButtonClick"/>
+        <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="78,320,0,0" VerticalAlignment="Top" Click="deleteItemButtonClick"/>
     </Grid>
 </Window>

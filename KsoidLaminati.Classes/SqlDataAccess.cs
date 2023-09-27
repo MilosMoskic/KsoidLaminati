@@ -47,6 +47,20 @@ namespace KsoidLaminati.Classes
                 }
             }
         }
+        public static void DeleteItem(ItemModel itemModel)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string selectQuery = $@"select * from Item where id = {itemModel.Id}";
+                var entity = cnn.Query<ItemModel>(selectQuery, itemModel.Id);
+                if (entity != null)
+                {
+                    string deleteQuery = $@"delete from Item where id = {itemModel.Id}";
+
+                    cnn.Execute(deleteQuery);
+                }
+            }
+        }
         private static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;

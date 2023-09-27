@@ -17,23 +17,11 @@ namespace KsoidLaminati.UI
             InitializeComponent();
             DisplayTable();
         }
-        private void LoadItemsList()
-        {
-            items = SqlDataAccess.LoadItems();
-
-        }
         private void DisplayTable()
         {
-            try
-            {
-                var items = SqlDataAccess.LoadItems();
+            var items = SqlDataAccess.LoadItems();
 
-                DataGridItems.ItemsSource = items;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            DataGridItems.ItemsSource = items;
         }
         private void addItemButtonClick(object sender, RoutedEventArgs e)
         {
@@ -53,10 +41,7 @@ namespace KsoidLaminati.UI
 
             SqlDataAccess.SaveItem(item);
 
-            itemTypeText.Text = "";
-            itemBrandText.Text = "";
-            itemNameText.Text = "";
-            quantityText.Text = "";
+            cleanForm();
 
             DisplayTable();
         }
@@ -108,10 +93,7 @@ namespace KsoidLaminati.UI
                     }
                     SqlDataAccess.UpdateItem(item);
 
-                    itemTypeText.Text = "";
-                    itemBrandText.Text = "";
-                    itemNameText.Text = "";
-                    quantityText.Text = "";
+                    cleanForm();
 
                     DisplayTable();
                 }
@@ -124,6 +106,33 @@ namespace KsoidLaminati.UI
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+        private void deleteItemButtonClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (idText.Text != "")
+                {
+                    ItemModel item = new ItemModel();
+                    item.Id = Convert.ToInt32(idText.Text);
+                    SqlDataAccess.DeleteItem(item);
+
+                    cleanForm();
+
+                    DisplayTable();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void cleanForm()
+        {
+            itemTypeText.Text = "";
+            itemBrandText.Text = "";
+            itemNameText.Text = "";
+            quantityText.Text = "";
         }
     }
 }
