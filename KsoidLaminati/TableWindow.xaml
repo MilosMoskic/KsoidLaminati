@@ -16,7 +16,7 @@
         <TextBox x:Name="idText" HorizontalAlignment="Left" Margin="24,75,0,0" Visibility="Hidden" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="itemBrandText" HorizontalAlignment="Left" Margin="24,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="itemNameText" HorizontalAlignment="Left" Margin="24,194,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="quantityText" HorizontalAlignment="Left" Margin="24,238,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="quantityText" HorizontalAlignment="Left" Margin="24,238,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
         <Label Content="ItemName" HorizontalAlignment="Left" Margin="24,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.533,0.565" Width="65"/>
         <Label Content="Quantity" HorizontalAlignment="Left" Margin="22,212,0,0" VerticalAlignment="Top"/>
         <Button Content="Dodaj" HorizontalAlignment="Left" Margin="22,278,0,0" VerticalAlignment="Top" Click="addItemButtonClick"/>
@@ -36,5 +36,6 @@
                 <DataGridTextColumn Header="Quantity" FontFamily="Arial" Width="150" Binding="{Binding Quantity}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="Update" Content="Update" HorizontalAlignment="Left" Margin="82,278,0,0" VerticalAlignment="Top" Click="updateItemButtonClick"/>
     </Grid>
 </Window>
