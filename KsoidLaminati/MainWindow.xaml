@@ -14,6 +14,8 @@
             PreviewMouseUp="CanvasMain_PreviewMouseUp">
         <Button Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="52" Height="20" Click="Button_Click" Canvas.Left="99" Canvas.Top="63"/>
         <Label Content="Pritisni dugme da dodas laminat" Canvas.Left="34" Canvas.Top="37" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="Tabela stvari&#xD;&#xA;" Canvas.Left="45" Canvas.Top="95" HorizontalAlignment="Center" Height="28" VerticalAlignment="Top"/>
+        <Button Content="Button" Canvas.Left="63" Canvas.Top="123" Click="GoToTable"/>
 
     </Canvas>
 </Window>
